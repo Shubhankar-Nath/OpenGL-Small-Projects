@@ -1,14 +1,15 @@
 # OpenGL-Small-Projects
-<h2> <i>This repository have very simple programs made in OpenGL.</i></h2>
+<h3> <i>This repository have very simple programs made in OpenGL.</i></h3>
 ******************************************************************
-
+<br>
 To run the programs in this repository, you need to install the following on the linux machine ( I am using a ubuntu derived OS )
-Check this link to install the required packages : http://www.cse.iitm.ac.in/~vplab/courses/CG/opengl_start.html
+<br>
+Check this link to install the required packages : http://www.cse.iitm.ac.in/~vplab/courses/CG/opengl_start.html<br>
 
-The following are steps to run any program in this repo:
+The following are steps to run any program in this repo:<br>
 <b>
-1. Open terminal and change directory to where you have created your file.
-2. Run the command :g++ -o  file_name  file_name.cpp -lGL -lGLU -lglut
-3. Type: ./file_name
+1. Open terminal and change directory to where you have created your file.<br>
+2. Run the command :<i>g++ -o  file_name  file_name.cpp -lGL -lGLU -lglut </i><br>
+3. Type:<i> ./file_name </i> <br>
 </b>
 Good Luck!!
