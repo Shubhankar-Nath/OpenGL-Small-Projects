@@ -9,7 +9,7 @@ Check this link to install the required packages : http://www.cse.iitm.ac.in/~vp
 The following are steps to run any program in this repo:<br>
 <b>
 1. Open terminal and change directory to where you have created your file.<br>
-2. Run the command :<i>g++ -o  file_name  file_name.cpp -lGL -lGLU -lglut </i><br>
-3. Type:<i> ./file_name </i> <br>
-</b>
+2. Run the command :</b>g++ -o  file_name  file_name.cpp -lGL -lGLU -lglut <b><br>
+3. Type:</b> ./file_name <b> <br>
+<i>
 Good Luck!!
