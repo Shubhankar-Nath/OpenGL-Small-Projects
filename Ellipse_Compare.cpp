@@ -17,7 +17,7 @@ void drawMidPt(int a, int b, int xc, int yc)
   glEnd();
   glFinish();
 
-  p = bSq - (aSq * b) + (0.25 * aSq);
+  p = bSq - (aSq * b) + (0.25 * aSq);// Desission Parameter
   while (px < py)
   {
     x++;
@@ -31,7 +31,7 @@ void drawMidPt(int a, int b, int xc, int yc)
       p = p + bSq + px - py;
     }
     glBegin(GL_POINTS);
-		glVertex2d(xc+x,yc+y);
+    glVertex2d(xc+x,yc+y);
     glVertex2d(xc+x,yc-y);
     glVertex2d(xc-x,yc-y);
     glVertex2d(xc-x,yc+y);
@@ -40,7 +40,7 @@ void drawMidPt(int a, int b, int xc, int yc)
     glFinish();
   }
 
- p = bSq*(x+0.5)*(x+0.5) + aSq*(y-1)*(y-1) - aSq*bSq;
+ p = bSq*(x+0.5)*(x+0.5) + aSq*(y-1)*(y-1) - aSq*bSq;// Desission Parameter
 
  while (y > 0)
  {
@@ -76,7 +76,6 @@ void drawPolar(int a, int b, int xc, int yc)
     glEnd();
     glFlush();
   }
-
 }
 
 void myKey(unsigned char key, int x, int y)
@@ -125,7 +124,7 @@ int main(int argc, char** argv)
   glutInitWindowPosition(80, 80);
   glutInitWindowSize(600, 600);
   glutCreateWindow("Ellipse Compare");
-  glMatrixMode(GL_PROJECTION);
+  glMatrixMode(GL_PROJECTION);//Changing the coordinate System
 	glLoadIdentity();
   gluOrtho2D(0,600,600,0);
   glutDisplayFunc(display);
