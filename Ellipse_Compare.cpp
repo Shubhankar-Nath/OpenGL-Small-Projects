@@ -1,7 +1,7 @@
 #include<GL/glut.h>
 #include<string.h>
 #include<stdio.h>
-#include <math.h>
+#include<math.h>
 #include<unistd.h>
 
 void drawMidPt(int a, int b, int xc, int yc)
@@ -11,9 +11,11 @@ void drawMidPt(int a, int b, int xc, int yc)
   float x = 0, y = b, p;
   float px = 0, py = 2 * aSq * y;
   glColor3f( 1 ,0, 0);
-  glBegin(GL_POLYGON);
+  glBegin(GL_POINTS);
   glVertex2d(xc+x,yc-y);// Top most point
   glVertex2d(xc-x,yc+y);// Bottom most point
+  glEnd();
+  glFinish();
 
   p = bSq - (aSq * b) + (0.25 * aSq);
   while (px < py)
@@ -28,10 +30,14 @@ void drawMidPt(int a, int b, int xc, int yc)
       py = py - 2 * aSq;
       p = p + bSq + px - py;
     }
+    glBegin(GL_POINTS);
 		glVertex2d(xc+x,yc+y);
     glVertex2d(xc+x,yc-y);
     glVertex2d(xc-x,yc-y);
     glVertex2d(xc-x,yc+y);
+    usleep(8000);//Causing Delay
+    glEnd();
+    glFinish();
   }
 
  p = bSq*(x+0.5)*(x+0.5) + aSq*(y-1)*(y-1) - aSq*bSq;
@@ -48,25 +54,29 @@ void drawMidPt(int a, int b, int xc, int yc)
     px = px + 2 * bSq;
     p = p + aSq - py + px;
   }
+  glBegin(GL_POINTS);
   glVertex2d(xc+x,yc+y);
   glVertex2d(xc+x,yc-y);
   glVertex2d(xc-x,yc-y);
   glVertex2d(xc-x,yc+y);
+  usleep(8000);//Causing Delay
+  glEnd();
+  glFinish();
   }
-glEnd();
-glFinish();
 }
 
 void drawPolar(int a, int b, int xc, int yc)
 {
-  glBegin(GL_POLYGON);
   glColor3f(0.2, 0.6, 0.2) ;
   for (int i =0; i<360; i++)
   {
+    glBegin(GL_POINTS);
     glVertex2f((a*sin(i)+xc),(b*cos(i)+yc));
+    usleep(8000);//Causing Delay
+    glEnd();
+    glFlush();
   }
-  glEnd();
-  glFinish();
+
 }
 
 void myKey(unsigned char key, int x, int y)
@@ -119,7 +129,6 @@ int main(int argc, char** argv)
 	glLoadIdentity();
   gluOrtho2D(0,600,600,0);
   glutDisplayFunc(display);
-  //glutMouseFunc(mymouse);
   glutKeyboardFunc(myKey);
   glutMainLoop();
 }
