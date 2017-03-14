@@ -4,20 +4,26 @@
 #include<math.h>
 #include<unistd.h>
 
+static int mem=0;//to store the last angle that is drawn
 
 void drawPie(float percent, float r, float g, float b)
 {
-  float d=0;
-  for (int i =0; i<360; i++)
+  float degree=0;
+  int count =0;
+  for (int i=mem; i<360; i++)
   {
-    d= (3.14/180)*(i*percent);//Converting radian into degree
+    degree= (3.14/180)*(i);//Converting radian into degree
     glBegin(GL_LINES);
     glColor3f(r,g,b);
     glVertex2d(300,300);
-    glVertex2f((100*cos(d)+300), (100*sin(d)+300));
+    glVertex2f((100*cos(degree)+300), (100*sin(degree)+300));
     usleep(8000);//Causing Delay
     glEnd();
     glFinish();
+    mem++;
+    count++;
+    if(count>(360*percent))
+      break;
   }
 }
 
@@ -31,7 +37,9 @@ void myKey(unsigned char key, int x, int y)
       }
   else if ((key==68)||(key=100))// ASCII code for "D" or "d"
   {
-    drawPie(.50,1,1,1);
+    drawPie(.20,1,1,1);
+    drawPie(.50,1,0,1);
+    drawPie(.30,0,1,1);
   }
 }
 
