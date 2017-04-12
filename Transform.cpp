@@ -185,7 +185,10 @@ void showOption()
     cout<<"Choose the transformation:";
     cout<<"\t\n.Translation: a,w,s,d";
     cout<<"\t\n.Rotation: SPACEBAR";
+    cout<<"\t\n.Scaling: z, q";
+    cout<<"\t\n.Reflection: x, y";
     cout<<"\t\n.Orignal: o";
+    cout<<"<_____________________________=====_______________________________>";
 }
 
 int main(int argc, char** argv)
