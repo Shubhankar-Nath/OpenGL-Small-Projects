@@ -3,13 +3,13 @@
 #include<string.h>
 #include<stdio.h>
 
-static int TriangleHeight[6];
+static int TriangleHeight[6];//Data Structure to show heights
 
 void drawTriangle()
 {
   int a=25, b=75;
   for (int z=0; z<6; z++)
-  {
+  {// Drawing all the triangles of same base but different height from the array
     glBegin(GL_TRIANGLES);
     glColor3f(0.2f,0.7f,0.3f);
     glVertex2d(a,400);
@@ -17,7 +17,7 @@ void drawTriangle()
     glVertex2d(a,(400-TriangleHeight[z]));
     glEnd();
     glFlush();
-    a+=100;
+    a+=100;//Putting up space
     b+=100;
     printf("%d |", TriangleHeight[z]);
   }
@@ -37,7 +37,7 @@ void sortTriangle()
         TriangleHeight[b+1]=TriangleHeight[b];
         TriangleHeight[b]=key;
       }
-      //usleep(80000);
+      usleep(8000);
       drawTriangle();
     }
 }
@@ -58,7 +58,7 @@ void myKey(unsigned char key, int x, int y)
 
 void display(/* arguments */)
 {
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT);// For clearing the screen
   glClearColor(0.0f, 0.0f, 0.0f, 0.8f);
   glFlush();
 
@@ -88,7 +88,9 @@ int main(int argc, char** argv)
 {
   printf("Enter heights of the triange ( 0 to 300):\n");
   for (int z=0; z<6; z++)
-    {scanf("%d\n", &TriangleHeight[z]);}
+    {
+      scanf("%d ", &TriangleHeight[z]);
+    }
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
   glutInitWindowPosition(80, 80);
